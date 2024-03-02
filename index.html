@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
         * {
@@ -13,22 +16,21 @@
         html {
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: "VT323", monospace;
             font-size: 18vw;
         }
         .container {
             height: 100vh;
         }
         .text {
-            color: #86c6fe;
+            color: white;
             background: black;
             font-weight: light;
             scroll-snap-align: start;
             position: relative;
             padding: 20px;
             height: 100vh;
-            text-shadow:  #2276b2 0 0 5px,
-                            #2885c7 0 0 30px;
+            text-shadow:  white 0 0 10px;
                         
             text-transform: uppercase;
             letter-spacing: -5px;
@@ -45,15 +47,15 @@
             width: 60px;
             height: 60px;
             transform: rotate(45deg) translate(-50%);
-            border-bottom: 4px solid #86c6fe;
-            border-right: 4px solid #86c6fe;
+            border-bottom: 4px solid white;
+            border-right: 4px solid white;
             animation:  .4s arrow 5s alternate 6,
                         .6s pulse 4.6s forwards;
         }
         .translation {
             font-size: 16px;
             scroll-snap-align: start;
-            height: 100vh;
+            min-height: 100vh;
             padding: 40px;
         }
         
