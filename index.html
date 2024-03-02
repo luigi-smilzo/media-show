@@ -13,21 +13,29 @@
         html {
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
-            font-family: monospace;
+            font-family: 'Courier New', Courier, monospace;
             font-size: 18vw;
         }
         .container {
             height: 100vh;
         }
         .text {
+            color: #86c6fe;
+            background: black;
+            font-weight: light;
             scroll-snap-align: start;
             position: relative;
             padding: 20px;
             height: 100vh;
+            text-shadow:  #2276b2 0 0 5px,
+                            #2885c7 0 0 30px;
+                        
+            text-transform: uppercase;
+            letter-spacing: -5px;
         }
         .text::after {
-            content: '|';
-            animation: pulse .4s alternate infinite;
+            content: '█';
+            animation: pulse 1s steps(2, jump-none) infinite;
         }
         .arrow {
             opacity: 0;
@@ -43,9 +51,22 @@
                         .6s pulse 4.6s forwards;
         }
         .translation {
+            font-size: 16px;
             scroll-snap-align: start;
             height: 100vh;
-            padding: 20px;
+            padding: 40px;
+        }
+        
+        .translation h1 {
+            font-size: 80px;
+        }
+
+        .translation p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px 0;
+            font-size: 24px;
+            padding: 0 40px;
+            line-height: 36px;
         }
 
         @keyframes pulse {
@@ -80,7 +101,10 @@
         <div class="text"></div>
         <div class="arrow"></div>
         <div class="translation">
-            L'unica mossa vincente è non giocare.
+            <h1>War Games</h1>
+            <p>"L'unica mossa vincente è non giocare"</p>
+            <p>Nel 1983 David, un genio dell'informatica, entra per errore nel server che gestisce la difesa nucleare degli Stati Uniti e induce involontariamente la macchina a pensare che il mondo sia in guerra.</p>
+            <p>La soluzione finale sarà sfidare la macchina pensante a giocare contro se stessa: confinata in un pareggio eterno essa capirà che l'unico modo per vincere è non giocare, scongiurando così l'attivazione dei sistemi di difesa nucleare.</p>
         </div>
     </div>
     
