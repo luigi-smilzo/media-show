@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+            font-family: monospace;
+            font-size: 18vw;
+        }
+        .container {
+            height: 100vh;
+        }
+        .text {
+            scroll-snap-align: start;
+            position: relative;
+            padding: 20px;
+            height: 100vh;
+        }
+        .text::after {
+            content: '|';
+            animation: pulse .4s alternate infinite;
+        }
+        .arrow {
+            opacity: 0;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 60px;
+            height: 60px;
+            transform: rotate(45deg) translate(-50%);
+            border-bottom: 4px solid black;
+            border-right: 4px solid black;
+            animation:  .4s arrow 5s alternate 6,
+                        .6s pulse 4.6s forwards;
+        }
+        .translation {
+            scroll-snap-align: start;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        @keyframes pulse {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes arrow {
+            from {
+                bottom: 10px;
+            }
+            to {
+                bottom: 30px;
+            }
+        }
+
+        @media (min-width: 760px) {
+            html {
+                font-size: 10vw;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text"></div>
+        <div class="arrow"></div>
+        <div class="translation">
+            L'unica mossa vincente è non giocare.
+        </div>
+    </div>
+    
+
+    <script>
+        const div = document.querySelector('.text')
+        const text = 'The only winning move is not to play.'
+
+        function textTypingEffect(element, text, i = 0) {
+            element.textContent += text[i]
+
+            if (i === text.length - 1) return
+
+            setTimeout(() => textTypingEffect(element, text, i + 1), 50)
+        }
+
+        setTimeout(() => textTypingEffect(div, text), 1000)
+    </script>
+</body>
+</html>
