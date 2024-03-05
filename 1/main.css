@@ -1,0 +1,103 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    font-family: "VT323", monospace;
+    font-size: 18vw;
+}
+
+.container {
+    height: 100vh;
+    height: 100dvh;
+}
+
+.text {
+    color: white;
+    background: black;
+    font-weight: light;
+    scroll-snap-align: start;
+    position: relative;
+    padding: 20px;
+    height: 100vh;
+    text-transform: uppercase;
+    line-height: 2ch;
+}
+
+.text span::after {
+    content: '\275A';
+    animation: pulse 1s steps(2, jump-none) infinite;
+}
+
+.text span.isHidden::after {
+    content: '';
+    animation: pulse 1s steps(2, jump-none) infinite;
+}
+
+.arrow {
+    opacity: 0;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    transform: rotate(45deg) translate(-50%);
+    border-bottom: 4px solid white;
+    border-right: 4px solid white;
+    animation:  .4s arrow 6.2s alternate 6,
+                .6s pulse 5.8s forwards;
+}
+
+.translation {
+    font-size: 16px;
+    scroll-snap-align: start;
+    min-height: 100vh;
+    padding: 40px;
+}
+
+.translation h1 {
+    font-size: 80px;
+    font-weight: normal;
+}
+
+.translation p {
+    font-family: 'Courier New', monospace;
+    margin: 20px 0;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.translation p.focus {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes arrow {
+    from {
+        bottom: 10px;
+    }
+
+    to {
+        bottom: 30px;
+    }
+}
+
+@media (min-width: 760px) {
+    html {
+        font-size: 10vw;
+    }
+}
